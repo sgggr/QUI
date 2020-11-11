@@ -8,9 +8,11 @@
 #endif
 #include "usercontrol/frmmessagebox.h"
 #include "usercontrol/frminputbox.h"
+#include "usercontrol/frminputbox.h"
+
 #include "iconhelper.h"
 #include "app.h"
-
+#include <QTextCodec>
 class myHelper: public QObject
 {
 
@@ -32,7 +34,7 @@ public:
     //设置编码为UTF8
     static void setTextCode(const QString sForName="UTF-8") {
 #if (QT_VERSION <= QT_VERSION_CHECK(5,0,0))
-        QTextCodec *codec = QTextCodec::codecForName(sForName);
+	QTextCodec *codec = QTextCodec::codecForName("UTF-8");
         QTextCodec::setCodecForLocale(codec);
         QTextCodec::setCodecForCStrings(codec);
         QTextCodec::setCodecForTr(codec);
